@@ -1,53 +1,93 @@
-import time
-
 class autoMovil:
     def __init__(self):
         self.marca = ""
 
-    def conducirAuto(self):
-        print("Vamos a acelerar el auto.")
-        time.sleep(2)
-        auto.acelerarAuto()
+    def menuAutos(self):
+        while True:
+            print()
+            menu = input("¿Que opción desea hacer? (Acelerar, Desacelerar, Salir): ")
+            if menu == "Acelerar":
+                if marca == "Audi":
+                    autoMovil.acelerarAudi()
+                    break
+                elif marca == "Honda":
+                    autoMovil.acelerarHonda()
+                    break
+                elif marca == "Mercedes":
+                    autoMovil.acelerarMercedes()
+                    break
+            # elif menu == "Desacelerar":
+            #     if marca == "Audi":
+            #         #autoMovil.acelerarAudi()
+            #         break
+            #     elif marca == "Honda":
+            #         #autoMovil.acelerarHonda()
+            #         break
+            #     elif marca == "Mercedes":
+            #         #autoMovil.acelerarMercedes()
+            #         break
+            elif menu == "Salir":
+                print("Se va a detener la prueba de autos...")
+                break
+            else:
+                print("Ingrese una opción valida.")
 
-    def acelerarAuto(self):
-        for i in range(0, 185, 5):
-            print("Su auto", marca, "esta acelerando a", i, "Km/h")
-            if i == 125:
-                print()
-                print("Estas pasando el limite de velocidad en la carretera, puede ser peligroso.")
-                print()
-                while True:
-                    quererDesacelerar = input(
-                        "Ingrese SI, para desacelerar el auto, si no el auto seguira acelerando: ")
-                    if quererDesacelerar.upper() == "SI":
-                        print("Desacelerando...")
-                        time.sleep(1)
-                        auto.desacelerarAuto()
-                        break
-                    else:
-                        print("Por favor se prudente.")
+# Apartado de Acelerar
 
-    def desacelerarAuto(self):
-        for i in range(185, 0, -5):
-            print("Su auto", marca, "esta acelerando a", i, "Km/h")
-            if i == 10:
-                print("El auto esta llendo muy lento.")
+    def acelerarAudi(self):
+        for i in range(0, 355, 15):
+            print("Su", marca, "esta llendo a", i, "Km/h")
+            if i == 350:
                 print()
-                quererAcelerar = input("Ingrese SI, para acelerar el auto: ")
-                if quererAcelerar.upper() == "SI":
-                    print("Acelerando...")
-                    time.sleep(1)
-                    auto.acelerarAuto()
+                print("Estas llendo a mucha velocidad, puede ser peligroso.")
+                print()
 
-auto = autoMovil()
+    def acelerarHonda(self):
+        for i in range(0, 295, 10):
+            print("Su", marca, "esta llendo a", i, "Km/h")
+            if i == 290:
+                print()
+                print("Estas llendo a mucha velocidad, puede ser peligroso.")
+                print()
+
+    def acelerarMercedes(self):
+        for i in range(0, 325, 20):
+            print("Su", marca, "esta llendo a", i, "Km/h")
+            if i == 320:
+                print()
+                print("Estas llendo a mucha velocidad, puede ser peligroso.")
+                print()
+
+# Apartado de Desacelerar
+
+    def desacelerarAudi(self):
+        for i in range(355, 0, -25):
+            print("Su auto", marca, "esta desacelerando a", i, "Km/h")
+
+    def desacelerarHonda(self):
+        for i in range(295, 0, -15):
+            print("Su auto", marca, "esta desacelerando a", i, "Km/h")
+
+    def desacelerarMercedes(self):
+        for i in range(325, 0, -20):
+            print("Su auto", marca, "esta desacelerando a", i, "Km/h")
+
+autoMoviles = autoMovil()
 
 while True:
-    marca = input("Ingrese una marca de auto: ")
-    if marca == "":
-        print("Ingrese una marca valida por favor.")
-        print()
-    else:
-        auto.marca
-        auto.conducirAuto()
-        print()
+    marca = input("Seleccione una marca de auto (Audi, Honda, Mercedes): ")
+    if marca == "Audi":
+        autoMoviles.marca
+        autoMoviles.menuAutos()
         break
+    elif marca == "Honda":
+        autoMoviles.marca
+        autoMoviles.menuAutos()
+        break
+    elif marca == "Mercedes":
+        autoMoviles.marca
+        autoMoviles.menuAutos()
+        break
+    else:
+        print("Seleccione una marca de auto valida por favor.")
+        print()
