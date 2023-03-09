@@ -3,7 +3,6 @@ import time
 class autoMovil:
     def __init__(self):
         self.marca = ""
-        self.velocidad = 0
 
     def conducirAuto(self):
         print("Vamos a acelerar el auto.")
